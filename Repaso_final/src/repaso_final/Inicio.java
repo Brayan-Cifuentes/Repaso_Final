@@ -20,6 +20,9 @@ public class Inicio extends javax.swing.JFrame {
    
     
     private Proveedor proveedor;
+    private Productos prod;
+    private Entradas ent;
+    private Salidas sal;
     
     public Inicio() {
         initComponents();
@@ -152,7 +155,8 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-       
+       prod = new Productos();
+       jDesktopPane1.add(prod);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
@@ -160,7 +164,8 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        
+        ent= new Entradas();
+        jDesktopPane1.add(ent);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
@@ -174,6 +179,8 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
+        sal= new Salidas();
+        jDesktopPane1.add(sal);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
