@@ -176,7 +176,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ingresa el c&#xf3;digo del alumno: "/>
+        <Property name="text" type="java.lang.String" value="Ingresa el c&#xf3;digo de Salida: "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_buscar">

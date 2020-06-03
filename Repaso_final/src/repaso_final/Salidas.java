@@ -85,7 +85,7 @@ public class Salidas extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel5.setText("Ingresa el código del alumno: ");
+        jLabel5.setText("Ingresa el código de Salida: ");
 
         jButton4.setText("Buscar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {

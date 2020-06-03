@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author Brayan Cifuentes
  */
-public class Entradas extends javax.swing.JInternalFrame {
+public class Stock extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Empleados
@@ -22,7 +22,7 @@ public class Entradas extends javax.swing.JInternalFrame {
     String Usuario = "root";
     String Clave = "admin";
     
-    public Entradas() {
+    public Stock() {
         initComponents();
     }
 
@@ -39,7 +39,7 @@ public class Entradas extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         txt_idproducto = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txt_identrada = new javax.swing.JTextField();
+        id_stock = new javax.swing.JTextField();
         lbl_estatus = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txt_cantidad = new javax.swing.JTextField();
@@ -49,17 +49,16 @@ public class Entradas extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        txt_fecha = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
         setVisible(true);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        jLabel1.setText("Entradas:");
+        jLabel1.setText("Stock/ Unidades:");
 
-        jLabel2.setText("ID Entrada:");
+        jLabel2.setText("ID Stock:");
 
         txt_idproducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,15 +68,15 @@ public class Entradas extends javax.swing.JInternalFrame {
 
         jLabel3.setText("ID Producto:");
 
-        txt_identrada.addActionListener(new java.awt.event.ActionListener() {
+        id_stock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_identradaActionPerformed(evt);
+                id_stockActionPerformed(evt);
             }
         });
 
         lbl_estatus.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
 
-        jLabel4.setText("Cantidad Entrada:");
+        jLabel4.setText("Cantidad Actual:");
 
         txt_cantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,7 +84,7 @@ public class Entradas extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel5.setText("Ingresa el código de Entrada: ");
+        jLabel5.setText("Ingresa el código del Stock: ");
 
         jButton4.setText("Buscar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -115,11 +114,10 @@ public class Entradas extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel6.setText("Fecha de entrega:");
-
-        txt_fecha.addActionListener(new java.awt.event.ActionListener() {
+        jButton5.setText("calcular uds.");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_fechaActionPerformed(evt);
+                jButton5ActionPerformed(evt);
             }
         });
 
@@ -130,22 +128,8 @@ public class Entradas extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel2))
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txt_idproducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txt_identrada, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton1)
                                 .addGap(18, 18, 18)
@@ -157,14 +141,24 @@ public class Entradas extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jButton4))
-                        .addGap(37, 37, 37))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel6)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(lbl_estatus, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(59, 59, 59)))
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4))
                         .addGap(26, 26, 26)
-                        .addComponent(txt_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbl_estatus, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(96, 96, 96))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txt_idproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton5))
+                            .addComponent(id_stock, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,36 +167,31 @@ public class Entradas extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4)
-                        .addGap(17, 17, 17)
-                        .addComponent(lbl_estatus, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_identrada, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(txt_idproducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(txt_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(57, Short.MAX_VALUE))
+                    .addComponent(id_stock, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txt_idproducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton4)
+                .addGap(17, 17, 17)
+                .addComponent(lbl_estatus, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
         );
 
         pack();
@@ -212,9 +201,9 @@ public class Entradas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_idproductoActionPerformed
 
-    private void txt_identradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_identradaActionPerformed
+    private void id_stockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_stockActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_identradaActionPerformed
+    }//GEN-LAST:event_id_stockActionPerformed
 
     private void txt_cantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cantidadActionPerformed
         // TODO add your handling code here:
@@ -224,20 +213,20 @@ public class Entradas extends javax.swing.JInternalFrame {
         //Codigo que permite consultar registros en la base de datos
         try{
             Connection cn = DriverManager.getConnection(BD, Usuario, Clave);
-            PreparedStatement pst = cn.prepareStatement("select * from Entradas where id_entrada = ?");
+            PreparedStatement pst = cn.prepareStatement("select * from Stock where id_stock = ?");
             pst.setString(1, txt_buscar.getText().trim());
 
             ResultSet rs = pst.executeQuery();
 
             if(rs.next()){
-                txt_identrada.setText(rs.getString("id_entrada"));
+                id_stock.setText(rs.getString("id_stock"));
                 txt_idproducto.setText(rs.getString("id_producto"));
-                txt_cantidad.setText(rs.getString("cantidad_entrada"));
-                txt_fecha.setText(rs.getString("fecha_entrada"));
+                txt_cantidad.setText(rs.getString("cantidad_actual"));
+               // txt_fecha.setText(rs.getString("fecha_entrada"));
                 
 
             } else {
-                JOptionPane.showMessageDialog(null, "Entrada no registrada.");
+                JOptionPane.showMessageDialog(null, "Stock no registrado.");
             }
 
         }catch (Exception e){
@@ -250,19 +239,19 @@ public class Entradas extends javax.swing.JInternalFrame {
         //Codigo que permite insertar registros en al base de datos
         try{
             Connection cn = DriverManager.getConnection(BD, Usuario, Clave);
-            PreparedStatement pst = cn.prepareStatement("insert into Entradas values(?,?,?,?)");
+            PreparedStatement pst = cn.prepareStatement("insert into Stock values(?,?,?)");
 
-            pst.setString(1, txt_identrada.getText().trim());
+            pst.setString(1, id_stock.getText().trim());
             pst.setString(2, txt_idproducto.getText().trim());
             pst.setString(3, txt_cantidad.getText().trim());
-            pst.setString(4, txt_fecha.getText().trim());
+           // pst.setString(4, txt_fecha.getText().trim());
             
             pst.executeUpdate();
 
-            txt_identrada.setText("");
+            id_stock.setText("");
             txt_idproducto.setText("");
             txt_cantidad.setText("");
-            txt_fecha.setText("");
+            //txt_fecha.setText("");
            
             lbl_estatus.setText("Registro exitoso.");
         }catch (Exception e){
@@ -277,19 +266,19 @@ public class Entradas extends javax.swing.JInternalFrame {
             String ID = txt_buscar.getText().trim();
 
             Connection cn = DriverManager.getConnection(BD, Usuario, Clave);
-            PreparedStatement pst = cn.prepareStatement("update Entradas set id_entrada = ?, id_producto=?, cantidad_entrada=?, fecha_entrada=? where id_entrada = " + ID);
+            PreparedStatement pst = cn.prepareStatement("update Stock set id_stock = ?, id_producto=?, cantidad_actual=? where id_stock = " + ID);
             
-            pst.setString(1, txt_identrada.getText().trim());
+            pst.setString(1, id_stock.getText().trim());
             pst.setString(2, txt_idproducto.getText().trim());
             pst.setString(3, txt_cantidad.getText().trim());
-            pst.setString(4, txt_fecha.getText().trim());
+            //pst.setString(4, txt_fecha.getText().trim());
            
             pst.executeUpdate();
             
-            txt_identrada.setText("");
+            id_stock.setText("");
             txt_idproducto.setText("");
             txt_cantidad.setText("");
-            txt_fecha.setText("");
+           // txt_fecha.setText("");
            
             lbl_estatus.setText("Modificación Exitosa.");
 
@@ -303,15 +292,15 @@ public class Entradas extends javax.swing.JInternalFrame {
         try {
 
             Connection cn = DriverManager.getConnection(BD, Usuario, Clave);
-            PreparedStatement pst = cn.prepareStatement("delete from Entradas where id_entrada = ?");
+            PreparedStatement pst = cn.prepareStatement("delete from Stock where id_stock = ?");
 
             pst.setString(1, txt_buscar.getText().trim());
             pst.executeUpdate();
 
-            txt_identrada.setText("");
+            id_stock.setText("");
             txt_idproducto.setText("");
             txt_cantidad.setText("");
-            txt_fecha.setText("");
+            //txt_fecha.setText("");
             
            
             lbl_estatus.setText("Registro Eliminado.");
@@ -321,27 +310,55 @@ public class Entradas extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void txt_fechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_fechaActionPerformed
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_fechaActionPerformed
+        int Entrada = 0, Salida = 0, Total=0;
+        
+        try{
+            Connection cn = DriverManager.getConnection(BD, Usuario, Clave);
+            PreparedStatement pst = cn.prepareStatement("select * from Entradas where id_producto = ?");
+            PreparedStatement pst2 = cn.prepareStatement("select * from Salidas where id_producto = ?");
+            
+            pst.setString(1, txt_idproducto.getText().trim());
+            pst2.setString(1, txt_idproducto.getText().trim());
+
+            ResultSet rs = pst.executeQuery();
+            ResultSet rs2 = pst2.executeQuery();
+
+            if(rs.next()){
+                Entrada= Integer.parseInt(rs.getString("cantidad_entrada"));
+            } 
+            
+            if (rs2.next()) {
+                Salida= Integer.parseInt(rs2.getString("cantidad_salida"));
+            }
+            
+            //Resultado
+            Total= Entrada-Salida;
+            
+            txt_cantidad.setText(Integer.toString(Total));
+
+        }catch (Exception e){
+
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField id_stock;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel lbl_estatus;
     private javax.swing.JTextField txt_buscar;
     private javax.swing.JTextField txt_cantidad;
-    private javax.swing.JTextField txt_fecha;
-    private javax.swing.JTextField txt_identrada;
     private javax.swing.JTextField txt_idproducto;
     // End of variables declaration//GEN-END:variables
 }
